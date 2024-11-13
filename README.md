@@ -26,6 +26,9 @@ The dataset consists of X-ray images classified into two categories:
 - **Fractured**
 - **Not Fractured**
 
+You can download the dataset from Kaggle using the following link:  
+[Fracture Multi-Region X-ray Data](https://www.kaggle.com/datasets/bmadushanirodrigo/fracture-multi-region-x-ray-data/)
+
 ### Directory Structure:
     dataset/
     ├── train/
