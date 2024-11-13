@@ -8,36 +8,63 @@
 5. [Training and Early Stopping](#training-and-early-stopping)
 6. [Evaluation and Results](#evaluation-and-results)
 7. [Installation](#installation)
-8. [Usage](#usage)
-9. [Future Improvements](#future-improvements)
-10. [Contributing](#contributing)
+8. [Future Improvements](#future-improvements)
+9. [Contributing](#contributing)
 
 ---
 
 ## Project Overview
-This project is a binary classification model designed to detect bone fractures in X-ray images using deep learning. By leveraging transfer learning on a pre-trained ResNet18 model, the model achieves a robust performance on this task, making it suitable for assisting radiologists in identifying fractures.
+This project aims to build a binary classification model to detect bone fractures in X-ray images using deep learning. By leveraging transfer learning with the pre-trained ResNet18 model, we fine-tune the model for fracture detection, making it an effective tool for assisting radiologists in identifying fractures.
+
+Key Highlights:
+- **Model**: ResNet18 (pre-trained on ImageNet, fine-tuned for fracture classification).
+- **Output**: Binary classification (Fractured vs. Not Fractured).
+- **Techniques Used**: Transfer learning, data augmentation, early stopping, and learning rate scheduling.
 
 ## Dataset
-- **Classes**: Fractured, Not Fractured
-- **Directory Structure**:
-  - `train`: Training set images.
-  - `val`: Validation set images.
-  - `test`: Test set images.
+The dataset consists of X-ray images classified into two categories:
+- **Fractured**
+- **Not Fractured**
 
+### Directory Structure:
+dataset/
+├── train/
+│   ├── fractured/
+│   └── not_fractured/
+├── val/
+│   ├── fractured/
+│   └── not_fractured/
+└── test/
+    ├── fractured/
+    └── not_fractured/
+
+
+### Data Details:
+- **Training Set**: Images used to train the model.
+- **Validation Set**: Images used to evaluate the model during training.
+- **Test Set**: Images used for final evaluation after training.
 
 ## Model Architecture
-The model is based on **ResNet18**, pre-trained on ImageNet, and fine-tuned for binary classification:
+The model is based on **ResNet18**, which has been pre-trained on ImageNet and fine-tuned for binary classification. Key components:
 - **Frozen Layers**: All layers except the final fully connected layers.
-- **Modified Output Layer**: Adjusted to a binary classification with sigmoid activation.
+- **Modified Output Layer**: Adjusted to binary classification with a sigmoid activation function for output.
 
 ## Data Preprocessing
-Data augmentation and normalization are applied to improve model generalization:
-- **Training**: Resize to 224x224, Random Horizontal Flip, Random Rotation (10°), Random Resized Crop, Normalize.
-- **Validation/Test**: Resize to 224x224, Normalize.
+We apply several preprocessing techniques to improve model performance and generalization:
+- **Training**: 
+  - Resize to 224x224 pixels.
+  - Random horizontal flip.
+  - Random rotation (up to 10 degrees).
+  - Random resized crop.
+  - Normalize using ImageNet statistics.
+- **Validation/Test**:
+  - Resize to 224x224 pixels.
+  - Normalize using ImageNet statistics.
 
 ## Training and Early Stopping
-Training uses **Binary Cross Entropy Loss** and **Adam Optimizer** with a learning rate scheduler:
-- **Early Stopping**: Prevents overfitting by monitoring validation loss and stopping training if no improvement is seen after several epochs.
+The training uses **Binary Cross Entropy Loss** and the **Adam Optimizer**, with the following additional components:
+- **Early Stopping**: Stops training if the validation loss does not improve after a specified number of epochs (patience).
+- **Learning Rate Scheduling**: Reduces the learning rate by a factor of 0.1 every 5 epochs to allow for finer optimization as training progresses.
 
 ## Evaluation and Results
 
@@ -45,7 +72,7 @@ Training uses **Binary Cross Entropy Loss** and **Adam Optimizer** with a learni
 - **Accuracy**: 86.76% on the test set
 - **Classification Report**:
 
-                     precision    recall  f1-score   support
+                       precision    recall  f1-score   support
 
           fractured       0.86      0.91      0.88       238
       not fractured       0.92      0.87      0.89       268
@@ -55,17 +82,78 @@ Training uses **Binary Cross Entropy Loss** and **Adam Optimizer** with a learni
        weighted avg       0.89      0.89      0.89       506
 
 
-
-
 - **Confusion Matrix**:
-
-![Confusion Matrix](output.png)  <!-- Update with the correct path to confusion matrix image -->
-
+  ![](output.png)  <!-- Ensure the file is saved as confusion_matrix.png -->
 
 ### Sample Prediction Output:
-![](predicted.png)
+  ![Sample Prediction](predicted.png) <!-- Ensure the file is saved as predicted_output.png -->
 
+### Notes on Evaluation:
+- **Accuracy**: The model achieved 89% accuracy on the test set, indicating its ability to differentiate between fractured and non-fractured images.
+- **Confusion Matrix**: Provides detailed insights into false positives and false negatives.
+- **Classification Report**: Displays precision, recall, and F1-score for both classes, which is essential for understanding the model's performance on imbalanced datasets.
+
+## Installation
+
+To run this project locally, follow these steps:
+
+### Prerequisites
+- Python 3.x
+- PyTorch
+- scikit-learn
+- Matplotlib
+- Pillow
+
+### Setup Instructions:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/bone-fracture-classification.git
+   cd bone-fracture-classification
+   
+2. Create a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate   # On Windows use `venv\Scripts\activate`
+
+3. Install dependencies:
+   ```bash
+   pip install torch torchvision scikit-learn matplotlib pillow
+
+4. Ensure that your environment is set up for GPU if available. PyTorch will automatically use CUDA if it's properly configured.
+
+## Future Improvements
+Potential enhancements to improve this project include:
+
+1. **Model Enhancement**:
+   - Experiment with more complex architectures like **ResNet50**, **DenseNet**, or **EfficientNet** to improve classification accuracy.
+
+2. **Data Augmentation**:
+   - Apply additional augmentation techniques to improve generalization.
+   
+3. **Ensemble Methods**:
+   - Combine multiple models (e.g., ResNet18, ResNet50) using **Voting Classifier** or **Stacking** to improve accuracy and reduce bias.
+
+4. **Cross-Dataset Evaluation**:
+   - Evaluate the model on different datasets to test its generalization across various domains.
+
+5. **Deployment**:
+   - Deploy the model as a web app (e.g., **Flask**, **FastAPI**) for real-time predictions.
+
+---
+
+## Contributing
+We welcome contributions! To contribute, follow these steps:
+
+1. **Fork the Repository**:  
+   Fork this repository by clicking the "Fork" button at the top right.
+
+2. **Clone the Repository**:  
+   Clone it to your local machine:
+   ```bash
+   git clone https://github.com/yourusername/bone-fracture-classification.git
+   cd bone-fracture-classification
 
    
+
 
 
