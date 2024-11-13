@@ -103,40 +103,24 @@ To run this project locally, follow these steps:
 - Matplotlib
 - Pillow
 
-### Setup Instructions:
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/bone-fracture-classification.git
-   cd bone-fracture-classification
-   
-2. Create a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # On Windows use `venv\Scripts\activate`
-
-3. Install dependencies:
-   ```bash
-   pip install torch torchvision scikit-learn matplotlib pillow
-
-4. Ensure that your environment is set up for GPU if available. PyTorch will automatically use CUDA if it's properly configured.
-
 ## Future Improvements
 Potential enhancements to improve this project include:
 
 1. **Model Enhancement**:
-   - Experiment with more complex architectures like **ResNet50**, **DenseNet**, or **EfficientNet** to improve classification accuracy.
-
+   - Experiment with more complex architectures like ResNet50, DenseNet, or EfficientNet to improve classification accuracy.
+   - 
 2. **Data Augmentation**:
-   - Apply additional augmentation techniques to improve generalization.
+   - Apply additional augmentation techniques such as Random Vertical Flip, Color Jitter, Cutout, and Mixup to improve generalization and robustness.
    
 3. **Ensemble Methods**:
-   - Combine multiple models (e.g., ResNet18, ResNet50) using **Voting Classifier** or **Stacking** to improve accuracy and reduce bias.
+   - Combine multiple models (e.g., ResNet18, ResNet50) using Voting Classifier or Stacking to improve accuracy and reduce bias.
+Cross-Dataset Evaluation:
 
 4. **Cross-Dataset Evaluation**:
    - Evaluate the model on different datasets to test its generalization across various domains.
 
 5. **Deployment**:
-   - Deploy the model as a web app (e.g., **Flask**, **FastAPI**) for real-time predictions.
+   - Deploy the model as a web app (e.g., Flask, FastAPI) for real-time predictions and clinical use.
 
 ---
 
@@ -149,10 +133,5 @@ We welcome contributions! To contribute, follow these steps:
 2. **Clone the Repository**:  
    Clone it to your local machine:
    ```bash
-   git clone https://github.com/yourusername/bone-fracture-classification.git
+   git clone https:https://github.com/danish9491/ML-Projects.git
    cd bone-fracture-classification
-
-   
-
-
-
