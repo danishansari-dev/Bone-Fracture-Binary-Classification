@@ -82,8 +82,9 @@ The training uses **Binary Cross Entropy Loss** and the **Adam Optimizer**, with
 
 
 - **Confusion Matrix**:
-  ![](output.png)  <!-- Ensure the file is saved as confusion_matrix.png -->
 
+  ![Confusion Matrix](output.png)  <!-- Ensure the file is saved as confusion_matrix.png -->
+  
 ### Sample Prediction Output:
   ![Sample Prediction](predicted.png) <!-- Ensure the file is saved as predicted_output.png -->
 
