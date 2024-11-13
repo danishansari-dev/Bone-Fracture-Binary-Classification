@@ -63,7 +63,7 @@ Training uses **Binary Cross Entropy Loss** and **Adam Optimizer** with a learni
 
 
 ### Sample Prediction Output:
-[Predicted Image](predicted.png)
+![](predicted.png)
 
 
    
