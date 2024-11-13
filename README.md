@@ -27,17 +27,16 @@ The dataset consists of X-ray images classified into two categories:
 - **Not Fractured**
 
 ### Directory Structure:
-dataset/
-├── train/
-│   ├── fractured/
-│   └── not_fractured/
-├── val/
-│   ├── fractured/
-│   └── not_fractured/
-└── test/
+    dataset/
+    ├── train/
+    │   ├── fractured/
+    │   └── not_fractured/
+    ├── val/
+    │   ├── fractured/
+    │   └── not_fractured/
+    └── test/
     ├── fractured/
     └── not_fractured/
-
 
 ### Data Details:
 - **Training Set**: Images used to train the model.
