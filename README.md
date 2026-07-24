@@ -137,5 +137,5 @@ We welcome contributions! To contribute, follow these steps:
 2. **Clone the Repository**:  
    Clone it to your local machine:
    ```bash
-   git clone https:https://github.com/danish9491/ML-Projects.git
+   git clone https:https://github.com/danishansari-dev/ML-Projects.git
    cd bone-fracture-classification
